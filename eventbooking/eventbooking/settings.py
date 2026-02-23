@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-inl-6$)tc%b&(h#-)9^c#6ybn&5xltr9hhh-3v7ky$19=@4942
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
@@ -134,3 +134,4 @@ MIGRATION_MODULES = {
     'auth': 'mongo_migrations.auth',
     'contenttypes': 'mongo_migrations.contenttypes',
 }
+
