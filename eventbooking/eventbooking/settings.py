@@ -26,6 +26,16 @@ SECRET_KEY = 'django-insecure-inl-6$)tc%b&(h#-)9^c#6ybn&5xltr9hhh-3v7ky$19=@4942
 DEBUG = True
 
 ALLOWED_HOSTS = [*]
+import os
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    ALLOWED_HOSTS.append(".onrender.com")  # covers your Render domain
+
+# CSRF trusted origins (must include scheme: http/https)
+CSRF_TRUSTED_ORIGINS = [
+    "https://eventbooking-2vb5.onrender.com",
+]
 
 
 # Application definition
@@ -134,4 +144,5 @@ MIGRATION_MODULES = {
     'auth': 'mongo_migrations.auth',
     'contenttypes': 'mongo_migrations.contenttypes',
 }
+
 
